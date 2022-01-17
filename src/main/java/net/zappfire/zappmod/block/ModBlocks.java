@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.zappfire.zappmod.Zappmod;
+import net.zappfire.zappmod.block.custom.SoulsoilPreheater;
 import net.zappfire.zappmod.item.ModItemGroup;
 
 public class ModBlocks {
@@ -32,7 +33,7 @@ public class ModBlocks {
             new Block(FabricBlockSettings.of(Material.STONE ).strength(7.0f).requiresTool()));
 
     public static final Block SOULSOIL_PREHEATER = registerBlock("soulsoil_preheater",
-            new Block(FabricBlockSettings.of(Material.STONE ).strength(3.0f).requiresTool().luminance(14).nonOpaque()));
+            new SoulsoilPreheater(FabricBlockSettings.of(Material.STONE ).strength(3.0f).requiresTool().luminance(14).nonOpaque()));
 
     private static Block registerBlock(String name, Block block){
         registerBlockItem(name, block);

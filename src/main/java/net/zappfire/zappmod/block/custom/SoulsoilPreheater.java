@@ -9,9 +9,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 
-public class SousoilPreheater extends Block {
+public class SoulsoilPreheater extends Block {
 
-    public SousoilPreheater(Settings settings) {
+    public SoulsoilPreheater(Settings settings) {
         super(settings);
     }
     public void OnSteppedOn(World world, BlockPos pos, BlockState state, Entity entity)
