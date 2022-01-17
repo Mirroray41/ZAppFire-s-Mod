@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#MB",
+    "MAM",
+    "BM#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_scrap"
+    },
+    "M": {
+      "item": "minecraft:magma_block"
+    },
+    "B": {
+      "item": "minecraft:blaze_powder"
+    },
+    "A": {
+      "item": "minecraft:magma_cream"
+    }
+  },
+  "result": {
+    "item": "zappmod:fiery_binder",
+    "count": 1
+  }
+}

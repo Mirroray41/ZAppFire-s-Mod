@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "zzz",
+    "zzz",
+    "zzz"
+  ],
+  "key": {
+    "z": {
+      "item": "zappmod:raw_etherite_ingot"
+    }
+  },
+  "result": {
+    "item": "zappmod:raw_etherite_block",
+    "count": 1
+  }
+}

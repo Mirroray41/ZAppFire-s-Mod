@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zappmod:big_etherite_chunk"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "zappmod:big_etherite_chunk"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "zappmod:fiery_binder"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "zappmod:big_etherite_chunk"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "zappmod:big_etherite_chunk"
+    }
+  ],
+  "result": {
+    "item": "zappmod:raw_etherite_ingot",
+    "count": 1
+  }
+}

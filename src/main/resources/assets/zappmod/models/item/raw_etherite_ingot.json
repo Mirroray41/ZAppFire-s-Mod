@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "zappmod:item/raw_etherite_ingot"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "item.zappmod.sapphire": "Sapphire",
+
+  "item.zappmod.sapphire_sword": "Sapphire Sword",
+  "item.zappmod.sapphire_axe": "Sapphire Axe",
+  "item.zappmod.sapphire_pickaxe": "Sapphire Pickaxe",
+  "item.zappmod.sapphire_shovel": "Sapphire Shovel",
+  "item.zappmod.sapphire_hoe": "Sapphire Hoe",
+
+  "item.zappmod.sapphire_helmet": "Sapphire Helmet",
+  "item.zappmod.sapphire_chestplate": "Sapphire Chestplate",
+  "item.zappmod.sapphire_leggings": "Sapphire Leggings",
+  "item.zappmod.sapphire_boots": "Sapphire Boots",
+
+  "block.zappmod.sapphire_ore": "Sapphire Ore",
+  "block.zappmod.sapphire_block": "Sapphire Block",
+  "block.zappmod.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
+
+  "item.zappmod.sapphire_shield": "Sapphire Shield",
+  "item.zappmod.sapphire_shield.red": "Red Sapphire Shield",
+  "item.zappmod.sapphire_shield.orange": "Orange Sapphire Shield",
+  "item.zappmod.sapphire_shield.yellow": "Yellow Sapphire Shield",
+  "item.zappmod.sapphire_shield.lime": "Lime Sapphire Shield",
+  "item.zappmod.sapphire_shield.green": "Green Sapphire Shield",
+  "item.zappmod.sapphire_shield.light_blue": "Light Blue Sapphire Shield",
+  "item.zappmod.sapphire_shield.cyan": "Cyan Sapphire Shield",
+  "item.zappmod.sapphire_shield.blue": "Blue Sapphire Shield",
+  "item.zappmod.sapphire_shield.purple": "Purple Sapphire Shield",
+  "item.zappmod.sapphire_shield.magenta": "Magenta Sapphire Shield",
+  "item.zappmod.sapphire_shield.pink": "Pink Sapphire Shield",
+  "item.zappmod.sapphire_shield.brown": "Brown Sapphire Shield",
+  "item.zappmod.sapphire_shield.white": "White Sapphire Shield",
+  "item.zappmod.sapphire_shield.light_gray": "Light Gray Sapphire Shield",
+  "item.zappmod.sapphire_shield.gray": "Gray Sapphire Shield",
+  "item.zappmod.sapphire_shield.dark_gray": "Dark Gray Sapphire Shield",
+  "item.zappmod.sapphire_shield.black": "Black Sapphire Shield",
+
+  "item.zappmod.small_etherite_chunk": "Small Etherite Chunk",
+  "item.zappmod.big_etherite_chunk": "Big Etherite Chunk",
+  "item.zappmod.raw_etherite_ingot": "Raw Etherite Ingot",
+  "item.zappmod.etherite_ingot": "Etherite Ingot",
+
+  "block.zappmod.etherite_ore": "Etherite Ore",
+  "block.zappmod.raw_etherite_block": "Raw Etherite Block",
+  "block.zappmod.etherite_block": "Etherite Block",
+
+  "item.zappmod.etherite_sword": "Etherite Sword",
+  "item.zappmod.etherite_axe": "Etherite Axe",
+  "item.zappmod.etherite_pickaxe": "Etherite Pickaxe",
+  "item.zappmod.etherite_shovel": "Etherite Shovel",
+  "item.zappmod.etherite_hoe": "Etherite Hoe",
+
+  "item.zappmod.etherite_helmet": "Etherite Helmet",
+  "item.zappmod.etherite_chestplate": "Etherite Chestplate",
+  "item.zappmod.etherite_leggings": "Etherite Leggings",
+  "item.zappmod.etherite_boots": "Etherite Boots",
+
+  "item.zappmod.etherite_shield": "Etherite Shield",
+  "item.zappmod.etherite_shield.red": "Red Etherite Shield",
+  "item.zappmod.etherite_shield.orange": "Orange Etherite Shield",
+  "item.zappmod.etherite_shield.yellow": "Yellow Etherite Shield",
+  "item.zappmod.etherite_shield.lime": "Lime Etherite Shield",
+  "item.zappmod.etherite_shield.green": "Green Etherite Shield",
+  "item.zappmod.etherite_shield.light_blue": "Light Blue Etherite Shield",
+  "item.zappmod.etherite_shield.cyan": "Cyan Etherite Shield",
+  "item.zappmod.etherite_shield.blue": "Blue Etherite Shield",
+  "item.zappmod.etherite_shield.purple": "Purple Etherite Shield",
+  "item.zappmod.etherite_shield.magenta": "Magenta Etherite Shield",
+  "item.zappmod.etherite_shield.pink": "Pink Etherite Shield",
+  "item.zappmod.etherite_shield.brown": "Brown Etherite Shield",
+  "item.zappmod.etherite_shield.white": "White Etherite Shield",
+  "item.zappmod.etherite_shield.light_gray": "Light Gray Etherite Shield",
+  "item.zappmod.etherite_shield.gray": "Gray Etherite Shield",
+  "item.zappmod.etherite_shield.dark_gray": "Dark Gray Etherite Shield",
+  "item.zappmod.etherite_shield.black": "Black Etherite Shield",
+
+  "block.zappmod.soulsoil_preheater": "Soul Soil Preheater",
+
+  "item.zappmod.fiery_binder": "Fiery Binder",
+
+  "itemGroup.zappmod.zappmod": "ZAppFire's Mod!"
+}

@@ -1,0 +1,47 @@
+{
+  "entrypoints": {
+    "main": [
+      "net.zappfire.zappmod.Zappmod"
+    ],
+    "client": [
+      "net.zappfire.zappmod.ModClient"
+    ]
+  },
+
+  "schemaVersion": 1,
+  "id": "zappmod",
+  "version": "${version}",
+
+  "name": "ZAppFires test mod!",
+  "description": "This mod is only for testing features and it will(maybe) never be uploaded publicly!",
+  "authors": [
+    "ZAppFireCZ"
+  ],
+  "contact": {
+    "homepage": "",
+    "sources": ""
+  },
+
+  "license": "MIT",
+  "icon": "assets/zappmod/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.zappfire.zappmod.Zappmod"
+    ]
+  },
+  "mixins": [
+    "zappmod.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

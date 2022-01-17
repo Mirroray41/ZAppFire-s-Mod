@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "zappmod:sapphire_ore",
+    "zappmod:deepslate_sapphire_ore",
+    "zappmod:sapphire_block",
+    "zappmod:etherite_ore",
+    "zappmod:raw_etherite_block",
+    "zappmod:etherite_block",
+    "zappmod:soulsoil_preheater"
+  ]
+}

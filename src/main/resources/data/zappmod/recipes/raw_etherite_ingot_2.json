@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "zappmod:raw_etherite_block"
+    }
+  ],
+  "result": {
+    "item": "zappmod:raw_etherite_ingot",
+    "count": 9
+  }
+}
