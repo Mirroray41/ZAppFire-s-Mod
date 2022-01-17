@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.zappfire.zappmod.Zappmod;
+import net.zappfire.zappmod.block.custom.AlloySmelter;
 import net.zappfire.zappmod.block.custom.SoulsoilPreheater;
 import net.zappfire.zappmod.item.ModItemGroup;
 
@@ -31,6 +32,9 @@ public class ModBlocks {
 
     public static final Block ETHERITE_BLOCK = registerBlock("etherite_block",
             new Block(FabricBlockSettings.of(Material.STONE ).strength(7.0f).requiresTool()));
+
+    public static final Block ALLOY_SMELTER = registerBlock("alloy_smelter",
+            new AlloySmelter(FabricBlockSettings.of(Material.STONE ).strength(3.0f).requiresTool()));
 
     public static final Block SOULSOIL_PREHEATER = registerBlock("soulsoil_preheater",
             new SoulsoilPreheater(FabricBlockSettings.of(Material.STONE ).strength(3.0f).requiresTool().luminance(14).nonOpaque()));
