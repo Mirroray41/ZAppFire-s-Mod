@@ -1,0 +1,20 @@
+{
+  "type": "zappmod:alloy",
+  "ingredients": [
+    {
+      "item": "zappmod:sapphire"
+    },
+    {
+      "item": "zappmod:sapphire"
+    },
+    {
+      "item": "zappmod:sapphire"
+    },
+    {
+      "item": "zappmod:sapphire"
+    }
+  ],
+  "output": {
+    "item": "zappmod:sapphire"
+  }
+}

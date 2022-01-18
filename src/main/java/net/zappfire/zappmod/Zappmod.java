@@ -17,6 +17,7 @@ import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.*;
 import net.zappfire.zappmod.block.ModBlocks;
 import net.zappfire.zappmod.item.ModItems;
+import net.zappfire.zappmod.recipe.ModRecipes;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -87,6 +88,7 @@ public class Zappmod implements ModInitializer {
 
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModRecipes.register();
 
 		LOGGER.info("Zappmod init complete");
 	}
