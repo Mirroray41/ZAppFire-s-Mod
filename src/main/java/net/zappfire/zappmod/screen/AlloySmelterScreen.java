@@ -35,7 +35,7 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
 
         if(handler.isCrafting()) {
             int progress = handler.getScaledProgress();
-            this.drawTexture(matrices, x , y + 184, 99, 16, progress, 24);
+            this.drawTexture(matrices, x + 27, y + 36, 0, 184, progress, 16);
         }
 
     }

@@ -27,11 +27,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
     public boolean matches(SimpleInventory inventory, World world) {
         if(recipeItems.get(0).test(inventory.getStack(0))) {
             if(recipeItems.get(1).test(inventory.getStack(1))) {
-                if(recipeItems.get(2).test(inventory.getStack(2))) {
-                    if(recipeItems.get(3).test(inventory.getStack(3))) {
-                        return recipeItems.get(1).test(inventory.getStack(4));
-                    }
-                }
+                return recipeItems.get(2).test(inventory.getStack(2));
             }
         }
         return false;
@@ -66,6 +62,8 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
     public RecipeType<?> getType() {
         return Type.INSTANCE;
     }
+
+
     public static class Type implements RecipeType<AlloySmelterRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
@@ -81,14 +79,13 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
             ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
 
             JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(4, Ingredient.EMPTY);
+            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(3, Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new AlloySmelterRecipe(id, output,
-                    inputs);
+            return new AlloySmelterRecipe(id, output, inputs);
         }
         @Override
         public AlloySmelterRecipe read(Identifier id, PacketByteBuf buf) {
@@ -99,8 +96,7 @@ public class AlloySmelterRecipe implements Recipe<SimpleInventory> {
             }
 
             ItemStack output = buf.readItemStack();
-            return new AlloySmelterRecipe(id, output,
-                    inputs);
+            return new AlloySmelterRecipe(id, output, inputs);
         }
 
         @Override

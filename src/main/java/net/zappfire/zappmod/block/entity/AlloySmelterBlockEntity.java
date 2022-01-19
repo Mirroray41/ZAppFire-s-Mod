@@ -16,6 +16,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.zappfire.zappmod.item.ModItems;
 import net.zappfire.zappmod.item.inventory.ImplementedInventory;
 import net.zappfire.zappmod.recipe.AlloySmelterRecipe;
 import net.zappfire.zappmod.screen.AlloySmelterScreenHandler;
@@ -110,6 +111,11 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
     }
 
     private static void craftItem(AlloySmelterBlockEntity entity) {
+        int fuel = 0;
+        if(entity.getStack(3).getItem() == ModItems.ETHERITE_CHUNK) {
+            fuel ++;
+            entity.removeStack(3, 1);
+        }
         World world = entity.world;
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
         for (int i = 0; i < entity.inventory.size(); i++) {
@@ -119,29 +125,27 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
         Optional<AlloySmelterRecipe> match = world.getRecipeManager()
                 .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, world);
 
-        if(match.isPresent()) {
+        if(match.isPresent() && fuel > 0) {
             entity.removeStack(0,1);
             entity.removeStack(1,1);
             entity.removeStack(2,1);
-            entity.removeStack(3,1);
             entity.setStack(4, new ItemStack(match.get().getOutput().getItem(),
-                    entity.getStack(4).getCount() + 1));
+                        entity.getStack(4).getCount() + 1));
+            fuel --;
 
 
             entity.resetProgress();
         }
     }
-
     private void resetProgress() {
         this.progress = 0;
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleInventory inventory, ItemStack output) {
-        return inventory.getStack(2).getItem() == output.getItem() || inventory.getStack(4).isEmpty();
+        return inventory.getStack(4).getItem() == output.getItem() || inventory.getStack(4).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleInventory inventory) {
-        return inventory.getStack(2).getMaxCount() > inventory.getStack(4).getCount();
+        return inventory.getStack(4).getMaxCount() > inventory.getStack(4).getCount();
     }
-
 }
