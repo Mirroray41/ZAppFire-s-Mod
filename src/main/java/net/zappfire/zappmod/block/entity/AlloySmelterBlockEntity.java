@@ -25,6 +25,17 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
+private static int fuel;
+    public void loop(AlloySmelterBlockEntity entity) {
+        for (;;) {
+            if(fuel < 1) {
+                if (entity.getStack(3).getItem() == ModItems.SMALL_ETHERITE_CHUNK) {
+                    fuel++;
+                    entity.removeStack(3, 1);
+                }
+            }
+        }
+    }
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
 
@@ -112,10 +123,6 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
 
     private static void craftItem(AlloySmelterBlockEntity entity) {
         int fuel = 0;
-        if(entity.getStack(3).getItem() == ModItems.ETHERITE_CHUNK) {
-            fuel ++;
-            entity.removeStack(3, 1);
-        }
         World world = entity.world;
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
         for (int i = 0; i < entity.inventory.size(); i++) {
@@ -125,16 +132,25 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
         Optional<AlloySmelterRecipe> match = world.getRecipeManager()
                 .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, world);
 
-        if(match.isPresent() && fuel > 0) {
-            entity.removeStack(0,1);
-            entity.removeStack(1,1);
-            entity.removeStack(2,1);
-            entity.setStack(4, new ItemStack(match.get().getOutput().getItem(),
-                        entity.getStack(4).getCount() + 1));
-            fuel --;
+        if(fuel < 1) {
+            if (entity.getStack(3).getItem() == ModItems.SMALL_ETHERITE_CHUNK) {
+                fuel++;
+                entity.removeStack(3, 1);
+                if(match.isPresent() && fuel == 1) {
+                    entity.removeStack(0,1);
+                    entity.removeStack(1,1);
+                    entity.removeStack(2,1);
+                    entity.setStack(4, new ItemStack(match.get().getOutput().getItem(),
+                            entity.getStack(4).getCount() + 1));
+                    fuel --;
 
 
-            entity.resetProgress();
+                    entity.resetProgress();
+                }
+            }
+            else{
+                entity.resetProgress();
+            }
         }
     }
     private void resetProgress() {

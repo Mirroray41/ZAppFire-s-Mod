@@ -32,10 +32,14 @@ public class AlloySmelterScreen extends HandledScreen<AlloySmelterScreenHandler>
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        int progress = handler.getScaledProgress();
+        int a = (progress / 8);
+
 
         if(handler.isCrafting()) {
-            int progress = handler.getScaledProgress();
             this.drawTexture(matrices, x + 27, y + 36, 0, 184, progress, 16);
+            this.drawTexture(matrices, x + 64, y + 54 + a, 0, 166 + a, 24,18 - a);
+            this.drawTexture(matrices, x + 107, y + 54 + a, 43, 166 + a, 19,18 - a);
         }
 
     }
