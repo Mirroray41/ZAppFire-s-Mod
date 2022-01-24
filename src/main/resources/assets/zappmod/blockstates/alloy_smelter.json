@@ -1,18 +1,33 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,on=false": {
       "model": "zappmod:block/alloy_smelter",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,on=true": {
+      "model": "zappmod:block/alloy_smelter_on",
+      "y": 90
+    },
+    "facing=north,on=false": {
       "model": "zappmod:block/alloy_smelter"
     },
-    "facing=south": {
+    "facing=north,on=true": {
+      "model": "zappmod:block/alloy_smelter_on"
+    },
+    "facing=south,on=false": {
       "model": "zappmod:block/alloy_smelter",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,on=true": {
+      "model": "zappmod:block/alloy_smelter_on",
+      "y": 180
+    },
+    "facing=west,on=false": {
       "model": "zappmod:block/alloy_smelter",
+      "y": 270
+    },
+    "facing=west,on=true": {
+      "model": "zappmod:block/alloy_smelter_on",
       "y": 270
     }
   }

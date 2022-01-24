@@ -39,8 +39,6 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    // How many ticks it will take to craft the item (divide by twenty to get seconds count)
-    // In our case this should be even divisible by 21 as that's our pixel count for our progress arrow
     private int maxProgress = 297;
 
     public AlloySmelterBlockEntity(BlockPos pos, BlockState state) {
@@ -102,6 +100,7 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
             }
         } else {
             entity.resetProgress();
+            world.setBlockState(pos, state.with(ON, false));
         }
     }
 
