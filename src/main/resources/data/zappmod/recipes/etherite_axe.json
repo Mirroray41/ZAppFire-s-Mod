@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "zappmod:sapphire_axe"
+    },
+    "addition": {
+        "item": "zappmod:etherite_ingot"
+    },
+    "result": {
+        "item": "zappmod:etherite_axe"
+    }
+}
