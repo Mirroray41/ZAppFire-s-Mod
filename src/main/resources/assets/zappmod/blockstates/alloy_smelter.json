@@ -5,7 +5,8 @@
       "y": 90
     },
     "facing=north": {
-      "model": "zappmod:block/alloy_smelter"
+      "model": "zappmod:block/alloy_smelter",
+      "y": 0
     },
     "facing=south": {
       "model": "zappmod:block/alloy_smelter",

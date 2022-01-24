@@ -30,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-import static net.zappfire.zappmod.block.custom.AlloySmelter.ON;
+
 
 public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
@@ -96,7 +96,6 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
     public static void tick(World world, BlockPos pos, BlockState state, AlloySmelterBlockEntity entity) {
         if(hasRecipe(entity)) {
             entity.progress++;
-            world.setBlockState(pos, state.with(ON, true));
             if(entity.progress > entity.maxProgress) {
                 craftItem(entity);
             }
