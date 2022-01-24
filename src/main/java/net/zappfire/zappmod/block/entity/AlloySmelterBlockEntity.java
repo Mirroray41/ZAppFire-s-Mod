@@ -1,5 +1,6 @@
 package net.zappfire.zappmod.block.entity;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -8,14 +9,19 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.zappfire.zappmod.block.custom.AlloySmelter;
 import net.zappfire.zappmod.item.ModItems;
 import net.zappfire.zappmod.item.inventory.ImplementedInventory;
 import net.zappfire.zappmod.recipe.AlloySmelterRecipe;
@@ -24,18 +30,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+import static net.zappfire.zappmod.block.custom.AlloySmelter.ON;
+
 public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-private static int fuel;
-    public void loop(AlloySmelterBlockEntity entity) {
-        for (;;) {
-            if(fuel < 1) {
-                if (entity.getStack(3).getItem() == ModItems.SMALL_ETHERITE_CHUNK) {
-                    fuel++;
-                    entity.removeStack(3, 1);
-                }
-            }
-        }
-    }
+
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
 
@@ -98,6 +96,7 @@ private static int fuel;
     public static void tick(World world, BlockPos pos, BlockState state, AlloySmelterBlockEntity entity) {
         if(hasRecipe(entity)) {
             entity.progress++;
+            world.setBlockState(pos, state.with(ON, true));
             if(entity.progress > entity.maxProgress) {
                 craftItem(entity);
             }
@@ -132,25 +131,14 @@ private static int fuel;
         Optional<AlloySmelterRecipe> match = world.getRecipeManager()
                 .getFirstMatch(AlloySmelterRecipe.Type.INSTANCE, inventory, world);
 
-        if(fuel < 1) {
-            if (entity.getStack(3).getItem() == ModItems.SMALL_ETHERITE_CHUNK) {
-                fuel++;
-                entity.removeStack(3, 1);
-                if(match.isPresent() && fuel == 1) {
-                    entity.removeStack(0,1);
-                    entity.removeStack(1,1);
-                    entity.removeStack(2,1);
-                    entity.setStack(4, new ItemStack(match.get().getOutput().getItem(),
-                            entity.getStack(4).getCount() + 1));
-                    fuel --;
-
-
-                    entity.resetProgress();
-                }
-            }
-            else{
-                entity.resetProgress();
-            }
+        if(match.isPresent()) {
+            entity.removeStack(0,1);
+            entity.removeStack(1,1);
+            entity.removeStack(2,1);
+            entity.removeStack(3,1);
+            entity.setStack(4, new ItemStack(match.get().getOutput().getItem(),
+                    entity.getStack(4).getCount() + 1));
+            entity.resetProgress();
         }
     }
     private void resetProgress() {
