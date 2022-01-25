@@ -3,7 +3,9 @@ package net.zappfire.zappmod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.block.Blocks;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -26,6 +28,8 @@ public class Zappmod implements ModInitializer {
 	public static final String MOD_ID = "zappmod";
 
 	public static final Logger LOGGER = LogManager.getLogger("zappmod");
+
+	public static final DefaultParticleType MIRROR_PARTICLE = FabricParticleTypes.simple();
 
 	private static ConfiguredFeature<?, ?> OVERWORLD_SAPPHIRE_ORE_CONFIGURED_FEATURE = Feature.ORE
 			.configure(new OreFeatureConfig(
@@ -62,6 +66,8 @@ public class Zappmod implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		Registry.register(Registry.PARTICLE_TYPE, new Identifier("zappmod", "mirror_particle"), MIRROR_PARTICLE);
+
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
 				new Identifier("zappmod", "overworld_sapphire_ore"), OVERWORLD_SAPPHIRE_ORE_CONFIGURED_FEATURE);
 		Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("zappmod", "overworld_sapphire_ore"),
