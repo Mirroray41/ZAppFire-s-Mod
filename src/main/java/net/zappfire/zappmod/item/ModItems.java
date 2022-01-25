@@ -11,15 +11,16 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.zappfire.zappmod.Zappmod;
+import net.zappfire.zappmod.item.custom.Mirror;
 import net.zappfire.zappmod.item.custom.ModAxe;
 import net.zappfire.zappmod.item.custom.ModHoe;
 import net.zappfire.zappmod.item.custom.ModPickaxe;
-import net.zappfire.zappmod.item.custom.PrismarineMirror;
 
 public class ModItems {
 
     public static final Item PRISMARINE_MIRROR = registerItem("prismarine_mirror",
-            new PrismarineMirror(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1).group(ModItemGroup.ZAPPMOD)));
+            new Mirror(ModToolMaterial.PRISMARINE_MIRROR, 0.0f,1.0f,
+                    new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(ModItemGroup.ZAPPMOD).maxDamage(5)));
 
     public static final Item SAPPHIRE = registerItem("sapphire",
             new Item(new FabricItemSettings().group(ModItemGroup.ZAPPMOD)));
