@@ -30,10 +30,10 @@ public class AlloySmelterScreenHandler extends ScreenHandler {
         this.propertyDelegate = delegate;
 
         // Our Slots
-        this.addSlot(new Slot(inventory, 0, 44, 18));
-        this.addSlot(new Slot(inventory, 1, 8, 36));
-        this.addSlot(new Slot(inventory, 2, 44, 54));
-        this.addSlot(new Slot(inventory, 3, 89, 54));
+        this.addSlot(new Slot(inventory, 0, 8, 18));
+        this.addSlot(new Slot(inventory, 1, 44, 18));
+        this.addSlot(new Slot(inventory, 2, 80, 18));
+        this.addSlot(new Slot(inventory, 3, 89, 55));
         this.addSlot(new Slot(inventory, 4, 134, 36));
 
         addPlayerInventory(playerInventory);
@@ -48,7 +48,7 @@ public class AlloySmelterScreenHandler extends ScreenHandler {
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1); // Max Progress
-        int progressArrowSize = 99; // This is the width in pixels of your arrow
+        int progressArrowSize = 111; // This is the width in pixels of your arrow
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }

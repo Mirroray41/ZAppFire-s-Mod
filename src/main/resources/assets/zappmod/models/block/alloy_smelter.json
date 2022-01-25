@@ -1,7 +1,7 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "zappmod:block/alloy_smelter_top",
+    "down": "zappmod:block/alloy_smelter_bottom",
     "up": "zappmod:block/alloy_smelter_top",
     "north": "zappmod:block/alloy_smelter_front",
     "east": "zappmod:block/alloy_smelter_side",

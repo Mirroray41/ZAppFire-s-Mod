@@ -1,5 +1,6 @@
 package net.zappfire.zappmod.block.entity;
 
+import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -30,7 +31,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-import static net.zappfire.zappmod.block.custom.AlloySmelter.ON;
+import static net.zappfire.zappmod.block.custom.AlloySmelter.LIT;
+
 
 public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
 
@@ -39,7 +41,11 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 297;
+    private int maxProgress = 400;
+
+    private boolean isBurning() {
+        return this.progress > 0;
+    }
 
     public AlloySmelterBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ALLOY_SMELTER_BLOCK_ENTITY, pos, state);
@@ -67,7 +73,7 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
 
     @Override
     public Text getDisplayName() {
-        return new LiteralText("Alloy Smelter");
+        return new LiteralText(" Alloy Smelter");
     }
 
     @Nullable
@@ -92,15 +98,24 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
         super.writeNbt(nbt);
     }
     public static void tick(World world, BlockPos pos, BlockState state, AlloySmelterBlockEntity entity) {
+        boolean bl = entity.isBurning();
+        boolean bl2 = false;
         if(hasRecipe(entity)) {
             entity.progress++;
-            world.setBlockState(pos, state.with(ON, true));
             if(entity.progress > entity.maxProgress) {
                 craftItem(entity);
             }
         } else {
             entity.resetProgress();
-            world.setBlockState(pos, state.with(ON, false));
+        }
+        if (bl != entity.isBurning()) {
+            bl2 = true;
+            state = (BlockState)state.with(AbstractFurnaceBlock.LIT, entity.isBurning());
+            world.setBlockState(pos, state, 3);
+        }
+
+        if (bl2) {
+            markDirty(world, pos, state);
         }
     }
 
@@ -120,7 +135,6 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
     }
 
     private static void craftItem(AlloySmelterBlockEntity entity) {
-        int fuel = 0;
         World world = entity.world;
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
         for (int i = 0; i < entity.inventory.size(); i++) {
@@ -140,6 +154,10 @@ public class AlloySmelterBlockEntity extends BlockEntity implements NamedScreenH
             entity.resetProgress();
         }
     }
+
+
+
+
     private void resetProgress() {
         this.progress = 0;
     }
