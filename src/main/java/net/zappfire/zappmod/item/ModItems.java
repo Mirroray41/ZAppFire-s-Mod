@@ -14,11 +14,12 @@ import net.zappfire.zappmod.Zappmod;
 import net.zappfire.zappmod.item.custom.ModAxe;
 import net.zappfire.zappmod.item.custom.ModHoe;
 import net.zappfire.zappmod.item.custom.ModPickaxe;
+import net.zappfire.zappmod.item.custom.PrismarineMirror;
 
 public class ModItems {
 
     public static final Item PRISMARINE_MIRROR = registerItem("prismarine_mirror",
-            new Item(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1).group(ModItemGroup.ZAPPMOD)));
+            new PrismarineMirror(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1).group(ModItemGroup.ZAPPMOD)));
 
     public static final Item SAPPHIRE = registerItem("sapphire",
             new Item(new FabricItemSettings().group(ModItemGroup.ZAPPMOD)));
