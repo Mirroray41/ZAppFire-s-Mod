@@ -19,7 +19,6 @@ public class PrismarineMirror extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         playerEntity.playSound(SoundEvents.ENTITY_ENDER_DRAGON_DEATH, 70.0F, 1.0F);
-        playerEntity.ClientPlayNetworkHandler.getActiveTotemOfUndying
         playerEntity.getItemCooldownManager().set(this, 50);
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
