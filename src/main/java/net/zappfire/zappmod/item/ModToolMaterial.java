@@ -16,8 +16,8 @@ public enum ModToolMaterial implements ToolMaterial {
     ETHERITE(5, 3151, 14.0F, 6.0F, 15, () -> {
         return Ingredient.ofItems(ModItems.ETHERITE_INGOT);
     }),
-    PRISMARINE_MIRROR(1, 3, 1F, 1F, 15, () -> {
-        return Ingredient.ofItems(ModItems.ETHERITE_CHUNK);
+    PRISMALITE_MIRROR(1, 3, 1F, 1F, 15, () -> {
+        return Ingredient.ofItems(ModItems.PRISMALITE_ALLOY);
     });
 
     private final int miningLevel;

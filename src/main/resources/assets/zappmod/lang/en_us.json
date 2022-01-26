@@ -1,6 +1,9 @@
 {
   "item.zappmod.sapphire": "Sapphire",
 
+  "item.zappmod.prismalite_alloy": "Prismalite Alloy",
+  "item.zappmod.amethyst_panel": "Amethyst Panel",
+
   "item.zappmod.sapphire_sword": "Sapphire Sword",
   "item.zappmod.sapphire_axe": "Sapphire Axe",
   "item.zappmod.sapphire_pickaxe": "Sapphire Pickaxe",
@@ -79,7 +82,9 @@
 
   "item.zappmod.fiery_binder": "Fiery Binder",
 
-  "item.zappmod.prismarine_mirror": "Prismarine Mirror",
+  "item.zappmod.prismalite_mirror": "Prismalite Mirror",
+
+  "item.zappmod.elder_septer": "Elder Septer",
 
   "itemGroup.zappmod.zappmod": "ZAppFire's Mod!"
 }

@@ -1,0 +1,20 @@
+{
+  "type": "zappmod:alloy",
+  "ingredients": [
+    {
+      "item": "minecraft:prismarine_shard"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:prismarine_crystals"
+    },
+    {
+      "item": "minecraft:blaze_powder"
+    }
+  ],
+  "output": {
+    "item": "zappmod:prismalite_alloy"
+  }
+}
