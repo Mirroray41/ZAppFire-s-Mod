@@ -64,6 +64,8 @@ public class Zappmod implements ModInitializer {
 			SquarePlacementModifier.of(),
 			HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(20)));
 
+	public static Identifier ID_NETWORKING_TOTEM_ANIMATION_PACKET = new Identifier("zappmod", "totem_animation");
+
 	@Override
 	public void onInitialize() {
 		Registry.register(Registry.PARTICLE_TYPE, new Identifier("zappmod", "mirror_particle"), MIRROR_PARTICLE);
