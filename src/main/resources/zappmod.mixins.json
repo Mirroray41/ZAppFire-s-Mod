@@ -7,7 +7,9 @@
   ],
   "client": [
     "ZappmodMixin",
-    "RendererMixin"
+    "RendererMixin",
+    "ServerPlayerEntityRespawnMixin",
+    "TryUseTotemMixin"
   ],
   "injectors": {
     "defaultRequire": 1
