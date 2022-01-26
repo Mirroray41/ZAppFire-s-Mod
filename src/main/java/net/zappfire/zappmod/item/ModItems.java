@@ -11,16 +11,26 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import net.zappfire.zappmod.Zappmod;
-import net.zappfire.zappmod.item.custom.Mirror;
-import net.zappfire.zappmod.item.custom.ModAxe;
-import net.zappfire.zappmod.item.custom.ModHoe;
-import net.zappfire.zappmod.item.custom.ModPickaxe;
+import net.zappfire.zappmod.item.custom.*;
 
 public class ModItems {
 
-    public static final Item PRISMARINE_MIRROR = registerItem("prismarine_mirror",
-            new Mirror(ModToolMaterial.PRISMARINE_MIRROR, 0.0f,1.0f,
+    public static final Item TEST_MIRROR = registerItem("test_mirror",
+            new TestMirror(ModToolMaterial.PRISMALITE_MIRROR, 0.0f,1.0f,
                     new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(ModItemGroup.ZAPPMOD).maxDamage(5)));
+
+    public static final Item ELDER_SEPTER = registerItem("elder_septer",
+            new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(ModItemGroup.ZAPPMOD)));
+
+    public static final Item PRISMARINE_MIRROR = registerItem("prismalite_mirror",
+            new Mirror(ModToolMaterial.PRISMALITE_MIRROR, 0.0f,1.0f,
+                    new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).group(ModItemGroup.ZAPPMOD).maxDamage(5)));
+
+    public static final Item PRISMALITE_ALLOY = registerItem("prismalite_alloy",
+            new Item(new FabricItemSettings().group(ModItemGroup.ZAPPMOD)));
+
+    public static final Item AMETHYST_PANEL = registerItem("amethyst_panel",
+            new Item(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(ModItemGroup.ZAPPMOD)));
 
     public static final Item SAPPHIRE = registerItem("sapphire",
             new Item(new FabricItemSettings().group(ModItemGroup.ZAPPMOD)));
