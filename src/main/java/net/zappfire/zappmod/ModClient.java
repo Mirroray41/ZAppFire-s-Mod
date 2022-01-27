@@ -18,6 +18,8 @@ import net.zappfire.zappmod.block.ModBlocks;
 import net.zappfire.zappmod.screen.AlloySmelterScreen;
 import net.zappfire.zappmod.screen.ModScreenHandlers;
 
+import static net.zappfire.zappmod.item.custom.Mirror.onClientInit;
+
 public class ModClient implements ClientModInitializer {
 
     public static final EntityModelLayer SAPPHIRE_SHIELD_MODEL_LAYER = new EntityModelLayer(new Identifier("zappmod", "sapphire_shield"),"main");
@@ -41,7 +43,7 @@ public class ModClient implements ClientModInitializer {
         ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
             registry.register(new Identifier("zappmod", "particle/mirror_particle"));
         }));
-
+        onClientInit();
 
         ParticleFactoryRegistry.getInstance().register(Zappmod.MIRROR_PARTICLE, FlameParticle.Factory::new);
     }

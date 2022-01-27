@@ -1,6 +1,8 @@
 package net.zappfire.zappmod.item.custom;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
@@ -11,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.network.MessageType;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -55,26 +58,31 @@ public class Mirror extends Item {
         user.getItemCooldownManager().set(this, 100);
         user.sendSystemMessage(new LiteralText("activated" + coolDown), Util.NIL_UUID);
         coolDown = 100;
-        if(coolDown <= minCoolDown){
-            world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_TOTEM_USE, SoundCategory.AMBIENT, 0.5F, 0.0F);
-            user.teleport(0,0,0);
-            user.incrementStat(Stats.USED.getOrCreateStat(this));
-            coolDown = 100;
-            {
-                if (!user.getAbilities().creativeMode) {
-                    itemStack.damage(1,user,(player) -> player.sendToolBreakStatus(player.getActiveHand()));
-                    user.getItemCooldownManager().set(this, 500);
-                }
-                else {
-                    user.getItemCooldownManager().set(this, 50);
-                }
-            }
+
+        if (user instanceof ServerPlayerEntity) {
+            PacketByteBuf packetBuffer = PacketByteBufs.create();
+            packetBuffer.writeItemStack(itemStack);
+            ServerPlayNetworking.send((ServerPlayerEntity) user, Zappmod.ID_NETWORKING_TOTEM_ANIMATION_PACKET,
+                    packetBuffer);
         }
 
-
+        world.playSound((PlayerEntity)null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_TOTEM_USE, SoundCategory.AMBIENT, 0.5F, 0.0F);
+        // user.teleport(0,0,0);
+        user.incrementStat(Stats.USED.getOrCreateStat(this));
+        coolDown = 100;
+        {
+            if (!user.getAbilities().creativeMode) {
+                itemStack.damage(1,user,(player) -> player.sendToolBreakStatus(player.getActiveHand()));
+                user.getItemCooldownManager().set(this, 500);
+            }
+            else {
+                user.getItemCooldownManager().set(this, 50);
+            }
+        }
         return TypedActionResult.success(itemStack, world.isClient());
 
     }
+
     public static void onClientInit() {
         ClientPlayNetworking.registerGlobalReceiver(Zappmod.ID_NETWORKING_TOTEM_ANIMATION_PACKET,
                 (client, handler, buf, responseSender) -> {
@@ -82,6 +90,10 @@ public class Mirror extends Item {
                     client.execute(() -> {
                         client.gameRenderer.showFloatingItem(mirror);
                     });
+
+
+
                 });
     }
-    }
+
+}
